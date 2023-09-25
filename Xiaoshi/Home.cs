@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,13 @@ namespace Xiaoshi
         {
             InitializeComponent();
         }
+        private void btnstart_Click(object sender, EventArgs e)
+        {
+
+            string[] logfile= (Encoding.ASCII.GetString(File.ReadAllBytes("./logs.txt"))).Split('\n');
+            logs.Text= logfile[logfile.Length -2];
+        }
+
         private void pathInput_Click(object sender, EventArgs e)
         {
             if(pathInput.Text.Length != 0)
@@ -41,6 +49,5 @@ namespace Xiaoshi
                 return;
             }
         }
-
     }
 }

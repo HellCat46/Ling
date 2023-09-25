@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,22 +44,27 @@
             this.logs = new System.Windows.Forms.Label();
             this.receivers = new System.Windows.Forms.TabControl();
             this.active_receiver = new System.Windows.Forms.TabPage();
+            this.flow_active_receiver = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.menuStrip1.SuspendLayout();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.menu.SuspendLayout();
             this.receivers.SuspendLayout();
+            this.active_receiver.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.optionsToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menubar";
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Size = new System.Drawing.Size(800, 24);
+            this.menu.TabIndex = 0;
+            this.menu.Text = "menubar";
             // 
             // fileToolStripMenuItem
             // 
@@ -116,6 +121,7 @@
             this.btnstart.TabIndex = 2;
             this.btnstart.Text = "Start";
             this.btnstart.UseVisualStyleBackColor = true;
+            this.btnstart.Click += new System.EventHandler(this.btnstart_Click);
             // 
             // btnrestart
             // 
@@ -189,6 +195,7 @@
             // 
             // active_receiver
             // 
+            this.active_receiver.Controls.Add(this.flow_active_receiver);
             this.active_receiver.Location = new System.Drawing.Point(4, 22);
             this.active_receiver.Name = "active_receiver";
             this.active_receiver.Padding = new System.Windows.Forms.Padding(3);
@@ -197,8 +204,16 @@
             this.active_receiver.Text = "Active Receiver";
             this.active_receiver.UseVisualStyleBackColor = true;
             // 
+            // flow_active_receiver
+            // 
+            this.flow_active_receiver.Location = new System.Drawing.Point(0, 0);
+            this.flow_active_receiver.Name = "flow_active_receiver";
+            this.flow_active_receiver.Size = new System.Drawing.Size(771, 346);
+            this.flow_active_receiver.TabIndex = 1;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -206,6 +221,14 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Previous Receiver";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(771, 346);
+            this.dataGridView1.TabIndex = 1;
             // 
             // Home
             // 
@@ -222,16 +245,19 @@
             this.Controls.Add(this.btnrestart);
             this.Controls.Add(this.btnstart);
             this.Controls.Add(this.pathInput);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menu;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Home";
             this.Text = "Xiaoshi";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.receivers.ResumeLayout(false);
+            this.active_receiver.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,7 +265,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
@@ -255,6 +281,8 @@
         private System.Windows.Forms.TabControl receivers;
         private System.Windows.Forms.TabPage active_receiver;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.FlowLayoutPanel flow_active_receiver;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
