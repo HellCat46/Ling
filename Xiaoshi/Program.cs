@@ -16,11 +16,7 @@ namespace Xiaoshi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Home());
-
-
-            Webserver server = new Webserver();
-            server.Initilize("C:/Users/HellCat/Documents", "127.0.0.1");
+            Application.Run(new Home());
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Xiaoshi
     {
         public static void Write(string line)
         {
-            line += "\n";
+            line= "\n" + line;
             byte[] bytes = Encoding.ASCII.GetBytes(line);
             string path = "./logs.txt"; // Maintain per day logs instead of dumping everything into single file.
             if (File.Exists(path))
@@ -47,6 +47,11 @@ namespace Xiaoshi
                 file.Write(bytes, 0, bytes.Length);
                 file.Close();
             }
+        }
+        public static string ReadLast()
+        {
+
+            return File.ReadAllText("./logs.txt").ToString().Split('\n').Last();
         }
     }
 }

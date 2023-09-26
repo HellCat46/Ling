@@ -47,6 +47,8 @@
             this.flow_active_receiver = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.httpServer = new System.ComponentModel.BackgroundWorker();
+            this.Logger = new System.ComponentModel.BackgroundWorker();
             this.menu.SuspendLayout();
             this.receivers.SuspendLayout();
             this.active_receiver.SuspendLayout();
@@ -230,6 +232,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(771, 346);
             this.dataGridView1.TabIndex = 1;
             // 
+            // httpServer
+            // 
+            this.httpServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.httpServer_DoWork);
+            // 
+            // Logger
+            // 
+            this.Logger.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Logger_DoWork);
+            this.Logger.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Logger_ProgressChanged);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,6 +294,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.FlowLayoutPanel flow_active_receiver;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.ComponentModel.BackgroundWorker httpServer;
+        private System.ComponentModel.BackgroundWorker Logger;
     }
 }
 

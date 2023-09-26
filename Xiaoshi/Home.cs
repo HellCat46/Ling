@@ -6,24 +6,24 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace Xiaoshi
 {
     public partial class Home : Form
     {
+
         public Home()
         {
             InitializeComponent();
+            Logger.WorkerReportsProgress = true;
+            httpServer.WorkerSupportsCancellation = true;
+            
         }
-        private void btnstart_Click(object sender, EventArgs e)
-        {
-
-            string[] logfile= (Encoding.ASCII.GetString(File.ReadAllBytes("./logs.txt"))).Split('\n');
-            logs.Text= logfile[logfile.Length -2];
-        }
-
+        
         private void pathInput_Click(object sender, EventArgs e)
         {
             if(pathInput.Text.Length != 0)
@@ -39,6 +39,61 @@ namespace Xiaoshi
             SetDirPath();
         }
 
+        private void btnstart_Click(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("[a-zA-Z]:[\\\\\\/](?:[a-zA-Z0-9]+[\\\\\\/])*");
+            // Regex Source : https://stackoverflow.com/questions/37747139/regex-for-windows-path
+            // I am not shameless thief :)
+
+
+            if (!regex.IsMatch(pathInput.Text.ToString())) {
+                MessageBox.Show("Not a valid Path");
+                return;
+            } 
+            httpServer.RunWorkerAsync();
+            Logger.RunWorkerAsync();
+            btnstart.Enabled = false;
+            btnrestart.Enabled = true;
+            btnstop.Enabled = true;
+            btnkill.Enabled = true;
+        }
+
+
+        // Background Processes
+        private void httpServer_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            
+            Webserver server = new Webserver();
+            server.Initilize(pathInput.Text.ToString(), "127.0.0.1") ;
+            // I know this is bad but i will fix it later D:
+        }
+
+        private void Logger_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            String log = String.Empty;
+
+            while (true)
+            {
+                if(worker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    break;
+                }
+
+                worker.ReportProgress(0);
+                System.Threading.Thread.Sleep(5000); // Add an option to reduce this delay
+            }
+        }
+
+        private void Logger_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            logs.Text = Logging.ReadLast();
+        }
+
+        // Non-Event Functions start from here
         private void SetDirPath()
         {
             FolderBrowserDialog dir_path = new FolderBrowserDialog();

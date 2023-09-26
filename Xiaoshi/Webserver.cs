@@ -14,12 +14,13 @@ namespace Xiaoshi
         public void Initilize(string selected_path, string address)
         {
             HttpListener listener = new HttpListener();
-            String uri = "http://" + address + ":" + FindPort(address).ToString() + "/";
+            String port = FindPort(address).ToString();
+            String uri = "http://" + address + ":" + port + "/";
 
             listener.Prefixes.Add(uri);
          
             listener.Start();
-            //Logging.Write("Listening to http://" + ip + ":" + port);
+            Logging.Write("Listening to http://" + address + ":" + port);
 
             while (true)
             {
@@ -28,16 +29,11 @@ namespace Xiaoshi
                 HttpListenerRequest req = ctx.Request;
                 HttpListenerResponse res = ctx.Response;
 
-
                 Response(ref res, selected_path, req.RawUrl.ToString());
-                
-  
-                res.Close();
+                Logging.Write("Request Completed!!!");
 
-                //stream.Write(response, 0, response.Length);
-                //stream.Close();
-                //Console.WriteLine(Encoding.ASCII.GetString(response));
-            }
+                res.Close();
+             }
         }
 
         private void Response(ref HttpListenerResponse res, string selected_path, string path)
@@ -102,6 +98,7 @@ namespace Xiaoshi
             }
             if (avail_port != 0)
             {
+                Logging.Write("Port " + avail_port.ToString() + "is free. Moving to the process of starting Web Server");
                 return avail_port;
             }
             else
