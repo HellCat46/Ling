@@ -11,36 +11,36 @@ namespace Xiaoshi
 {
     internal class Webserver
     {
+        HttpListener listener = new HttpListener();
+        string root = String.Empty;
         public void Initilize(string selected_path, string address)
         {
-            HttpListener listener = new HttpListener();
             String port = FindPort(address).ToString();
             String uri = "http://" + address + ":" + port + "/";
-
             listener.Prefixes.Add(uri);
          
             listener.Start();
+            root = selected_path;
             Logging.Write("Listening to http://" + address + ":" + port);
-
-            while (true)
-            {
-                HttpListenerContext ctx = listener.GetContext();
-                
-                HttpListenerRequest req = ctx.Request;
-                HttpListenerResponse res = ctx.Response;
-
-                Response(ref res, selected_path, req.RawUrl.ToString());
-                Logging.Write("Request Completed!!!");
-
-                res.Close();
-             }
         }
 
+        public void HandleRequests()
+        {
+            HttpListenerContext ctx = listener.GetContext();
+
+            HttpListenerRequest req = ctx.Request;
+            HttpListenerResponse res = ctx.Response;
+
+            Response(ref res, root, req.RawUrl.ToString());
+            Logging.Write("Request Completed!!!");
+
+            res.Close();
+        }
         private void Response(ref HttpListenerResponse res, string selected_path, string path)
         {
 
             (byte[] res_body, FileSys.Response res_type, string file_name) = FileSys.prepareResponse(selected_path, path);
-            const string eol = "\r\n";
+            
 
             if (res_type == FileSys.Response.NotFound)
             {

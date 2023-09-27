@@ -149,6 +149,7 @@
             this.btnstop.TabIndex = 4;
             this.btnstop.Text = "Stop";
             this.btnstop.UseVisualStyleBackColor = true;
+            this.btnstop.Click += new System.EventHandler(this.btnstop_Click);
             // 
             // btnkill
             // 

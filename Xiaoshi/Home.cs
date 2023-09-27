@@ -20,6 +20,7 @@ namespace Xiaoshi
         {
             InitializeComponent();
             Logger.WorkerReportsProgress = true;
+            Logger.WorkerSupportsCancellation = true;
             httpServer.WorkerSupportsCancellation = true;
             
         }
@@ -58,6 +59,15 @@ namespace Xiaoshi
             btnkill.Enabled = true;
         }
 
+        private void btnstop_Click(object sender, EventArgs e)
+        {
+            httpServer.CancelAsync();
+            Logger.CancelAsync();
+            btnstart.Enabled = true;
+            btnrestart.Enabled = false;
+            btnstop.Enabled = false;
+            btnkill.Enabled = false;
+        }
 
         // Background Processes
         private void httpServer_DoWork(object sender, DoWorkEventArgs e)
@@ -67,6 +77,16 @@ namespace Xiaoshi
             
             Webserver server = new Webserver();
             server.Initilize(pathInput.Text.ToString(), "127.0.0.1") ;
+
+            while (true)
+            {
+                if(worker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    break;
+                }
+                server.HandleRequests();
+            }
             // I know this is bad but i will fix it later D:
         }
 
