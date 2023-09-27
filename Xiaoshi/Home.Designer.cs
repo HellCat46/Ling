@@ -236,11 +236,13 @@
             // httpServer
             // 
             this.httpServer.DoWork += new System.ComponentModel.DoWorkEventHandler(this.httpServer_DoWork);
+            this.httpServer.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.httpServer_RunWorkerCompleted);
             // 
             // Logger
             // 
             this.Logger.DoWork += new System.ComponentModel.DoWorkEventHandler(this.Logger_DoWork);
             this.Logger.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.Logger_ProgressChanged);
+            this.Logger.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.Logger_RunWorkerCompleted);
             // 
             // Home
             // 

@@ -50,9 +50,10 @@ namespace Xiaoshi
             if (!regex.IsMatch(pathInput.Text.ToString())) {
                 MessageBox.Show("Not a valid Path");
                 return;
-            } 
-            httpServer.RunWorkerAsync();
+            }
+
             Logger.RunWorkerAsync();
+            httpServer.RunWorkerAsync();
             btnstart.Enabled = false;
             btnrestart.Enabled = true;
             btnstop.Enabled = true;
@@ -62,11 +63,7 @@ namespace Xiaoshi
         private void btnstop_Click(object sender, EventArgs e)
         {
             httpServer.CancelAsync();
-            Logger.CancelAsync();
-            btnstart.Enabled = true;
-            btnrestart.Enabled = false;
-            btnstop.Enabled = false;
-            btnkill.Enabled = false;
+            Logging.Write("Stopping the server...");
         }
 
         // Background Processes
@@ -90,11 +87,22 @@ namespace Xiaoshi
             // I know this is bad but i will fix it later D:
         }
 
+        private void httpServer_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+            btnstart.Enabled = true;
+            btnrestart.Enabled = false;
+            btnstop.Enabled = false;
+            btnkill.Enabled = false;
+            Logger.CancelAsync();
+        }
+
         private void Logger_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
             String log = String.Empty;
 
+            Logging.Write("Starting the server");
             while (true)
             {
                 if(worker.CancellationPending == true)
@@ -111,6 +119,11 @@ namespace Xiaoshi
         private void Logger_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             logs.Text = Logging.ReadLast();
+        }
+
+        private void Logger_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            logs.Text = "Waiting for server to start";
         }
 
         // Non-Event Functions start from here
