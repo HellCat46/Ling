@@ -128,7 +128,7 @@
             this.lightToolStripMenuItem,
             this.darkToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // lightToolStripMenuItem
@@ -146,13 +146,13 @@
             // clearIndexToolStripMenuItem
             // 
             this.clearIndexToolStripMenuItem.Name = "clearIndexToolStripMenuItem";
-            this.clearIndexToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.clearIndexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearIndexToolStripMenuItem.Text = "Delete Index";
             // 
             // clearLogsToolStripMenuItem
             // 
             this.clearLogsToolStripMenuItem.Name = "clearLogsToolStripMenuItem";
-            this.clearLogsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.clearLogsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clearLogsToolStripMenuItem.Text = "Clear Logs";
             // 
             // helpToolStripMenuItem
@@ -167,13 +167,13 @@
             // reportABugToolStripMenuItem
             // 
             this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
-            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reportABugToolStripMenuItem.Text = "Report A Bug";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About Xiaoshi";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 

@@ -75,6 +75,13 @@ namespace Xiaoshi
             Logging.Write("Stopping the server...");
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.TopMost = true;
+            about.Show();
+        }
+
         // Background Processes
         private void Logger_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -123,11 +130,5 @@ namespace Xiaoshi
                 return;
             }
         }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
