@@ -39,6 +39,10 @@ namespace Xiaoshi
         {
             SetDirPath();
         }
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetDirPath();
+        }
 
         private void btnstart_Click(object sender, EventArgs e)
         {
@@ -54,6 +58,7 @@ namespace Xiaoshi
 
             Logger.RunWorkerAsync();
             httpServer.RunWorkerAsync();
+            pathInput.Enabled = false;
             btnstart.Enabled = false;
             btnrestart.Enabled = true;
             btnstop.Enabled = true;
@@ -62,7 +67,7 @@ namespace Xiaoshi
 
         private void btnstop_Click(object sender, EventArgs e)
         {
-            httpServer.CancelAsync();
+            httpServer.CancelAsync(); 
             Logging.Write("Stopping the server...");
         }
 
@@ -83,14 +88,17 @@ namespace Xiaoshi
                     break;
                 }
                 server.HandleRequests();
+                
+            Console.WriteLine("FUCKCCKCKCC");
             }
-            // I know this is bad but i will fix it later D:
+            // Well it is better now but worker will not be stopped until all client are disconnected.
         }
 
         private void httpServer_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-
+            Console.WriteLine("HMM");
             btnstart.Enabled = true;
+            pathInput.Enabled = true;
             btnrestart.Enabled = false;
             btnstop.Enabled = false;
             btnkill.Enabled = false;
@@ -112,13 +120,20 @@ namespace Xiaoshi
                 }
 
                 worker.ReportProgress(0);
-                System.Threading.Thread.Sleep(5000); // Add an option to reduce this delay
+                System.Threading.Thread.Sleep(1000); // Add an option to reduce this delay
             }
         }
 
         private void Logger_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            logs.Text = Logging.ReadLast();
+            try
+            {
+                logs.Text = Logging.ReadLast();
+            }
+            catch (IOException)
+            {
+                return;
+            }
         }
 
         private void Logger_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -137,5 +152,11 @@ namespace Xiaoshi
                 return;
             }
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -14,6 +14,8 @@ namespace Xiaoshi
             line= "\n" + line;
             byte[] bytes = Encoding.ASCII.GetBytes(line);
             string path = "./logs.txt"; // Maintain per day logs instead of dumping everything into single file.
+
+            WaitForFile(path);
             if (File.Exists(path))
             {
                 FileStream file = File.Open(path, FileMode.Open);
@@ -30,7 +32,7 @@ namespace Xiaoshi
                 if(line_count <= 1000)
                 {
                     file.Write(bytes, 0, bytes.Length);
-                    file.Close(); 
+                    file.Dispose(); 
                 }//else
                 //{
                 //    file.Close();
@@ -45,13 +47,33 @@ namespace Xiaoshi
                 FileStream file = File.Open(path, FileMode.Create);
                 
                 file.Write(bytes, 0, bytes.Length);
-                file.Close();
+                file.Dispose();
             }
         }
+        public static bool WaitForFile(string path)
+        {
+            while (true) // Add an timeout period
+            {
+                try
+                {
+                    StreamWriter fs = new StreamWriter(path);
+                    fs.Dispose();
+                    return true;
+                }
+                catch (IOException)
+                {
+                    continue;
+                }
+            }
+        }
+
         public static string ReadLast()
         {
+            StreamReader stream = new StreamReader("./logs.txt");
+            string line = stream.ReadToEnd().Split('\n').Last();
+            stream.Dispose();
 
-            return File.ReadAllText("./logs.txt").ToString().Split('\n').Last();
+            return line;
         }
     }
 }
