@@ -130,5 +130,12 @@ namespace Xiaoshi
                 return;
             }
         }
+
+        private void reportABugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Report report = new Report();
+            report.ShowDialog();
+        }
     }
 }

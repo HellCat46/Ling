@@ -30,7 +30,9 @@ namespace Xiaoshi
 
         private void reportissue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Report report = new Report();
+            report.TopMost = true;
+            report.ShowDialog();
         }
     }
 }

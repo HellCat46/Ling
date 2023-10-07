@@ -128,7 +128,7 @@
             this.lightToolStripMenuItem,
             this.darkToolStripMenuItem});
             this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.themeToolStripMenuItem.Text = "Theme";
             // 
             // lightToolStripMenuItem
@@ -146,13 +146,13 @@
             // clearIndexToolStripMenuItem
             // 
             this.clearIndexToolStripMenuItem.Name = "clearIndexToolStripMenuItem";
-            this.clearIndexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearIndexToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.clearIndexToolStripMenuItem.Text = "Delete Index";
             // 
             // clearLogsToolStripMenuItem
             // 
             this.clearLogsToolStripMenuItem.Name = "clearLogsToolStripMenuItem";
-            this.clearLogsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearLogsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.clearLogsToolStripMenuItem.Text = "Clear Logs";
             // 
             // helpToolStripMenuItem
@@ -169,6 +169,7 @@
             this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
             this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reportABugToolStripMenuItem.Text = "Report A Bug";
+            this.reportABugToolStripMenuItem.Click += new System.EventHandler(this.reportABugToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
