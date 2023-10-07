@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Guang
 {
-    public partial class Waiting : System.Web.UI.Page
+    public partial class Passcode : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
