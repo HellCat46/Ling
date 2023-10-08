@@ -11,7 +11,7 @@ namespace Guang
 {
 
 
-    public partial class Index
+    public partial class AdminLogin
     {
     }
 }

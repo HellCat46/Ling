@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3B57A836-21DF-4AF4-86D5-DDFBB658AE45}</ProjectGuid>
+    <ProjectGuid>{163974FE-0515-429E-857F-51934B176DDB}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -17,9 +17,9 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44346</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -67,40 +67,93 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\light.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\favicon\android-chrome-192x192.png" />
+    <Content Include="Assets\favicon\android-chrome-512x512.png" />
+    <Content Include="Assets\favicon\apple-touch-icon.png" />
+    <Content Include="Assets\favicon\browserconfig.xml" />
+    <Content Include="Assets\favicon\favicon-16x16.png" />
+    <Content Include="Assets\favicon\favicon-32x32.png" />
+    <Content Include="Assets\favicon\favicon.ico" />
+    <Content Include="Assets\favicon\mstile-150x150.png" />
+    <Content Include="Assets\favicon\safari-pinned-tab.svg" />
+    <Content Include="Assets\img\cat.png" />
     <Content Include="Global.asax" />
-    <Content Include="index.aspx" />
-    <Content Include="Password.aspx" />
-    <Content Include="Waiting.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Admin\AdminLogin.aspx" />
+    <Content Include="Admin\ListSharers.aspx" />
+    <Content Include="Auth\Passcode.aspx" />
+    <Content Include="Auth\ReqToAccess.aspx" />
+    <Content Include="Auth\Name.aspx" />
+    <Content Include="Receiver.aspx" />
+    <Content Include="Index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
+    <Compile Include="Guang.Master.cs">
+      <DependentUpon>Guang.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Password.aspx.cs">
-      <DependentUpon>Password.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Password.aspx.designer.cs">
-      <DependentUpon>Password.aspx</DependentUpon>
+    <Compile Include="Guang.Master.designer.cs">
+      <DependentUpon>Guang.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Waiting.aspx.cs">
-      <DependentUpon>Waiting.aspx</DependentUpon>
+    <Compile Include="Admin\AdminLogin.aspx.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Waiting.aspx.designer.cs">
-      <DependentUpon>Waiting.aspx</DependentUpon>
+    <Compile Include="Admin\AdminLogin.aspx.designer.cs">
+      <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ListSharers.aspx.cs">
+      <DependentUpon>ListSharers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ListSharers.aspx.designer.cs">
+      <DependentUpon>ListSharers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\Passcode.aspx.cs">
+      <DependentUpon>Passcode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth\Passcode.aspx.designer.cs">
+      <DependentUpon>Passcode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\ReqToAccess.aspx.cs">
+      <DependentUpon>ReqToAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth\ReqToAccess.aspx.designer.cs">
+      <DependentUpon>ReqToAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Auth\Name.aspx.cs">
+      <DependentUpon>Name.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auth\Name.aspx.designer.cs">
+      <DependentUpon>Name.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Receiver.aspx.cs">
+      <DependentUpon>Receiver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Receiver.aspx.designer.cs">
+      <DependentUpon>Receiver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Guang.Master" />
+    <Content Include="Assets\favicon\site.webmanifest" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -122,9 +175,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49895</DevelopmentServerPort>
+          <DevelopmentServerPort>49884</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44346/</IISUrl>
+          <IISUrl>http://localhost:49895/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

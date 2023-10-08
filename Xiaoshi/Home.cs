@@ -21,7 +21,7 @@ namespace Xiaoshi
             InitializeComponent();
             Logger.WorkerReportsProgress = true;
             Logger.WorkerSupportsCancellation = true;
-            httpServer.WorkerSupportsCancellation = true;
+            //httpServer.WorkerSupportsCancellation = true;
             
         }
         
@@ -39,6 +39,10 @@ namespace Xiaoshi
         {
             SetDirPath();
         }
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetDirPath();
+        }
 
         private void btnstart_Click(object sender, EventArgs e)
         {
@@ -53,7 +57,7 @@ namespace Xiaoshi
             }
 
             Logger.RunWorkerAsync();
-            httpServer.RunWorkerAsync();
+            pathInput.Enabled = false;
             btnstart.Enabled = false;
             btnrestart.Enabled = true;
             btnstop.Enabled = true;
@@ -62,41 +66,23 @@ namespace Xiaoshi
 
         private void btnstop_Click(object sender, EventArgs e)
         {
-            httpServer.CancelAsync();
-            Logging.Write("Stopping the server...");
-        }
-
-        // Background Processes
-        private void httpServer_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker worker = sender as BackgroundWorker;
-
-            
-            Webserver server = new Webserver();
-            server.Initilize(pathInput.Text.ToString(), "127.0.0.1") ;
-
-            while (true)
-            {
-                if(worker.CancellationPending == true)
-                {
-                    e.Cancel = true;
-                    break;
-                }
-                server.HandleRequests();
-            }
-            // I know this is bad but i will fix it later D:
-        }
-
-        private void httpServer_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-
+            Logger.CancelAsync();
             btnstart.Enabled = true;
+            pathInput.Enabled = true;
             btnrestart.Enabled = false;
             btnstop.Enabled = false;
             btnkill.Enabled = false;
-            Logger.CancelAsync();
+            Logging.Write("Stopping the server...");
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.TopMost = true;
+            about.Show();
+        }
+
+        // Background Processes
         private void Logger_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
@@ -112,13 +98,20 @@ namespace Xiaoshi
                 }
 
                 worker.ReportProgress(0);
-                System.Threading.Thread.Sleep(5000); // Add an option to reduce this delay
+                System.Threading.Thread.Sleep(1000); // Add an option to reduce this delay
             }
         }
 
         private void Logger_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            logs.Text = Logging.ReadLast();
+            try
+            {
+                logs.Text = Logging.ReadLast();
+            }
+            catch (IOException)
+            {
+                return;
+            }
         }
 
         private void Logger_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -136,6 +129,13 @@ namespace Xiaoshi
                 pathInput.Text = dir_path.SelectedPath;
                 return;
             }
+        }
+
+        private void reportABugToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            Report report = new Report();
+            report.ShowDialog();
         }
     }
 }

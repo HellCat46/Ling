@@ -12,22 +12,28 @@ namespace Guang
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
         }
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Console.WriteLine("SS" + Request.Path);
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-
+            Console.WriteLine("BR" + Request.Path);
+            if (Request.Path == "/") {
+                string code = Request.QueryString["code"];
+                if(code == "jjk")
+                {
+                    Response.Redirect("Auth/Name.aspx");
+                }
+            }
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {
-
+            Console.WriteLine("AA" + Request.Path);
         }
 
         protected void Application_Error(object sender, EventArgs e)
