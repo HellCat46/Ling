@@ -30,9 +30,6 @@ namespace Xiaoshi
                 return;
             }
             Regex regex = new Regex("\"\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*\"");
-            if (!regex.IsMatch(reportermail.Text)){
-                MessageBox.Show("Not a valid Email");
-            }
         }
 
         private void issueTitle_Enter(object sender, EventArgs e)
@@ -60,6 +57,21 @@ namespace Xiaoshi
         {
             if (issueDesc.Text == String.Empty){
                 issueDesc.Text = desctxt;
+            }
+        }
+
+        private void reportermail_Leave(object sender, EventArgs e)
+        {
+            if (reportermail.Text == String.Empty)
+            {
+                return;
+            }
+            Regex regex = new Regex("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
+            if (!regex.IsMatch(reportermail.Text))
+            {
+                MessageBox.Show("Not a valid Email");
+                reportermail.Focus();
+                return;
             }
         }
     }

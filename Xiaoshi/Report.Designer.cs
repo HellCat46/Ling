@@ -90,6 +90,7 @@
             this.reportermail.Name = "reportermail";
             this.reportermail.Size = new System.Drawing.Size(292, 20);
             this.reportermail.TabIndex = 7;
+            this.reportermail.Leave += new System.EventHandler(this.reportermail_Leave);
             // 
             // Report
             // 
