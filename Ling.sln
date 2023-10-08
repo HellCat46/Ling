@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xiaoshi", "Xiaoshi\Xiaoshi.csproj", "{465AE1D9-7D39-43B5-ABC1-BA7EC9DA2124}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tianxi", "Tianxi\Tianxi.csproj", "{9E5B269D-D048-4F6A-AE8A-09EDC4DA8803}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guang", "Guang\Guang.csproj", "{163974FE-0515-429E-857F-51934B176DDB}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{465AE1D9-7D39-43B5-ABC1-BA7EC9DA2124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465AE1D9-7D39-43B5-ABC1-BA7EC9DA2124}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{465AE1D9-7D39-43B5-ABC1-BA7EC9DA2124}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E5B269D-D048-4F6A-AE8A-09EDC4DA8803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E5B269D-D048-4F6A-AE8A-09EDC4DA8803}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E5B269D-D048-4F6A-AE8A-09EDC4DA8803}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E5B269D-D048-4F6A-AE8A-09EDC4DA8803}.Release|Any CPU.Build.0 = Release|Any CPU
 		{163974FE-0515-429E-857F-51934B176DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{163974FE-0515-429E-857F-51934B176DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{163974FE-0515-429E-857F-51934B176DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
