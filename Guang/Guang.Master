@@ -4,9 +4,6 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    
-
     <link rel="apple-touch-icon" sizes="180x180" href="/Assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/Assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/Assets/favicon/favicon-16x16.png">
@@ -16,10 +13,7 @@
     <meta name="theme-color" content="#ffffff">
 
 
-
     <link rel="stylesheet" href="Assets/css/style.css" />
-    <link href="Assets/css/light.css" rel="stylesheet" />
-    <%--<link href="Assets/css/dark.css" rel="stylesheet" />--%>
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -30,7 +24,7 @@
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
-    <div class="footer">
+    <div ID="footer">
         <p>Copyright © Seikakuna / MIT</p>
     </div>
 </body>

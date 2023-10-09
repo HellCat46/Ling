@@ -67,7 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\css\light.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\favicon\android-chrome-192x192.png" />
     <Content Include="Assets\favicon\android-chrome-512x512.png" />
@@ -79,6 +78,8 @@
     <Content Include="Assets\favicon\mstile-150x150.png" />
     <Content Include="Assets\favicon\safari-pinned-tab.svg" />
     <Content Include="Assets\img\cat.png" />
+    <Content Include="Assets\img\github-logo-white.svg" />
+    <Content Include="Assets\img\github-logo.svg" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Admin\AdminLogin.aspx" />
