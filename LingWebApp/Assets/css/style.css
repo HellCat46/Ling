@@ -1,0 +1,59 @@
+﻿
+
+
+body {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    margin: 0px;
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #eff1f5;
+        color: #4c4f69;
+    }
+}
+
+/*.header {
+    position: absolute;
+    width : 100vw;
+    overflow: hidden;
+    padding: 20px 10px;
+    background-color : black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.logo{
+    width: auto;
+}
+.logo img{
+    width:5rem;
+    height:5rem;
+}*/
+
+/*#logo {
+    float: left;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    width: 18px;
+    height: 25px;
+    border-radius: 4px;
+}*/
+
+/*#github {
+    float : right;
+}
+
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: sans-serif;
+    text-align: center;
+}
+*/

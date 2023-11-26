@@ -8,7 +8,7 @@
 
 # System Specification
 ## Role of every Application
-### Guang (Web App)
+### Web App
 - Shows all the files being shared by sharer.
 - Asks user for authentication with the sharer selected method.
 - Generates Link for every sharer and store them into the DB with their MAC address for identity.
@@ -16,13 +16,13 @@
 - Redirects user to sharer's HTTP server for file downloads.
 = Option to Report the sharer.
 
-### Xiaoshi (Windows Form)
+### Windows Form
 - Indexes the sharer's file System. (Plan to replace this "idea" with more memory efficient one).
 - Remove sBacklisted folder/files from the index.
 - Sends File System Updates to Web App for live View using WebSocket.
 - Keep eyes on the public ip of system (Not sure if public ip can even changed by ISP when HTTP server is running).
 - Zip the folder when user requests for folder download.
-- Option to report an issue related to Xiaoshi.
+- Option to report an issue related to Windows App.
 
 ### Admin Panel
 - Can look at List of all the sharers and report sharers.
