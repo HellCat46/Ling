@@ -1,0 +1,7 @@
+syntax = "proto3";
+package Xiaoshi;
+
+import "google/protobuf/timestamp.proto";
+
+
+option csharp_namespace = "Google.Protobuf.FileTree";
