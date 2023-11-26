@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Xiaoshi
+namespace LingApp
 {
     public partial class Report : Form
     {

@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace Xiaoshi
+namespace LingApp
 {
     partial class Home
     {
@@ -169,15 +169,15 @@ namespace Xiaoshi
             // reportABugToolStripMenuItem
             // 
             this.reportABugToolStripMenuItem.Name = "reportABugToolStripMenuItem";
-            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.reportABugToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reportABugToolStripMenuItem.Text = "Report A Bug";
             this.reportABugToolStripMenuItem.Click += new System.EventHandler(this.reportABugToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.aboutToolStripMenuItem.Text = "About Xiaoshi";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About Ling";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // pathInput
@@ -293,11 +293,11 @@ namespace Xiaoshi
             this.flow_active_receiver.Size = new System.Drawing.Size(771, 346);
             this.flow_active_receiver.TabIndex = 1;
             // 
-            // prev_receiver
+            // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "prev_receiver";
+            this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(771, 346);
             this.tabPage2.TabIndex = 1;
@@ -339,7 +339,7 @@ namespace Xiaoshi
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Home";
-            this.Text = "Xiaoshi";
+            this.Text = "Ling";
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.receivers.ResumeLayout(false);

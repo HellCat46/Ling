@@ -1,4 +1,4 @@
-﻿namespace Xiaoshi
+﻿namespace LingApp
 {
     partial class About
     {
@@ -51,11 +51,12 @@
             // mainlbl
             // 
             this.mainlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mainlbl.Location = new System.Drawing.Point(165, 24);
+            this.mainlbl.Location = new System.Drawing.Point(191, 24);
             this.mainlbl.Name = "mainlbl";
-            this.mainlbl.Size = new System.Drawing.Size(196, 50);
+            this.mainlbl.Size = new System.Drawing.Size(131, 63);
             this.mainlbl.TabIndex = 1;
-            this.mainlbl.Text = "Xiaoshi";
+            this.mainlbl.Text = "Ling";
+            this.mainlbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -72,7 +73,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(250, 33);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Xiaoshi is Seikakuna to make sharing files  easier than it has ever been.";
+            this.label3.Text = "Ling\'s Window Application to make sharing files  easier than it has ever been.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // licenseinfo
@@ -113,7 +114,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "About";
-            this.Text = "About Ling\'s Xiaoshi";
+            this.Text = "About Ling";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

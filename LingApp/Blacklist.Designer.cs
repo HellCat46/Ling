@@ -1,4 +1,4 @@
-﻿namespace Xiaoshi
+﻿namespace LingApp
 {
     partial class Blacklist
     {

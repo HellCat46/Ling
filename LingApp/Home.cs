@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ComponentModel.DataAnnotations;
 
-namespace Xiaoshi
+namespace LingApp
 {
     public partial class Home : Form
     {

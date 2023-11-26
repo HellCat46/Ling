@@ -1,5 +1,5 @@
 syntax = "proto3";
-package Xiaoshi;
+package Ling;
 
 import "google/protobuf/timestamp.proto";
 
